@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>최신 네이버 메일</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+<h1>📬 최신 메일 목록 (5개)</h1>
+<table>
+    <thead>
+    <tr>
+        <th>보낸 사람</th>
+        <th>제목</th>
+        <th>받은 날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="email : ${emails}">
+        <td th:text="${email.from}"></td>
+        <td th:text="${email.subject}"></td>
+        <td th:text="${email.sentDate}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
